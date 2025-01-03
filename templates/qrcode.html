@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>QR Code</title>
+</head>
+<body>
+    <h1>QR Code</h1>
+    <form method="POST">
+        <label for="qrcode_data">กรอกข้อมูล QR Code:</label><br>
+        <textarea id="qrcode_data" name="qrcode_data"></textarea><br><br>
+        <input type="submit" value="สร้าง QR Code">
+    </form>
+
+    {% if error_message %}
+        <p style="color: red;">{{ error_message }}</p>
+    {% elif qrcode_image %}
+        <img src="data:image/png;base64,{{ qrcode_image }}" alt="QR Code">
+    {% endif %}
+</body>
+</html>

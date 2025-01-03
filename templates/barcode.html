@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Barcode</title>
+</head>
+<body>
+    <h1>Barcode</h1>
+    <form method="POST">
+        <label for="barcode_data">กรอกข้อมูล Barcode (ตัวเลข 13 หลัก):</label><br>
+        <input type="text" id="barcode_data" name="barcode_data"><br><br>
+        <input type="submit" value="สร้าง Barcode">
+    </form>
+
+    {% if error_message %}
+        <p style="color: red;">{{ error_message }}</p>
+    {% elif barcode_image %}
+        <img src="data:image/png;base64,{{ barcode_image }}" alt="Barcode">
+    {% endif %}
+</body>
+</html>
